@@ -40,7 +40,7 @@ Dynamic memory, commonly known as the heap, is managed by the [AssemblyScript ru
 
 When writing high level AssemblyScript, the above is pretty much everything one needs to know. But there is a low level perspective of course.
 
-When implementing low-level code, the end of static memory respectively the start of dynamic memory can be obtained by reading the `__heap_base` global. Memory managers for example do this to decide where to place their bookkeeping structures before partitioning the heap.
+When implementing low-level code, the end of static memory respectively the start of dynamic memory can be obtained by reading the `__heap_base` global. Memory managers for example do this to decide where to place their bookkeeping structures before partitioning the heap. [WebAssembly is specifiend to use little-endian](https://webassembly.github.io/spec/core/syntax/instructions.html#memory-instructions) and as a result, so is AssemblyScript. 
 
 The memory manager guarantees an alignment of 16 bytes, so an `ArrayBuffer`, which can be the backing buffer of multiple views, always fits up to `v128` values with native alignment.
 
